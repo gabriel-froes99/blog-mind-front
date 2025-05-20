@@ -1,0 +1,125 @@
+
+.registrar-page { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0; 
+}
+
+.phone-frame {
+  width: 100%;
+  max-width: 400px; 
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 20px; 
+}
+
+@media (min-width: 600px) {
+  .phone-frame {
+    border: 10px solid #333; 
+    border-radius: 40px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+    padding: 0; 
+  }
+}
+
+
+.registrar-box { 
+  width: 100%;
+  padding: 20px; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header-container {
+  display: flex; 
+  align-items: center; 
+  width: 100%; 
+  margin-bottom: 10px; 
+  justify-content: center; 
+}
+
+.back-arrow {
+  font-size: 2.5em; 
+  color: #333; 
+  text-decoration: none; 
+  line-height: 1; 
+  margin-right: 10px; 
+}
+
+.back-arrow:hover {
+  color: #007bff; 
+}
+
+.registrar-box h2 { 
+  margin-bottom: 0; 
+  color: #333;
+}
+
+.registrar-box p { 
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+
+.input-group {
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: left; 
+}
+
+.input-group label {
+  display: block; 
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; 
+  font-size: 1em;
+}
+
+.registrar-box button { 
+  width: 100%;
+  padding: 10px;
+  background-color: black; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.registrar-box button:hover {
+  background-color: rgb(60,60,60,);
+}
+
+.registrar-box .link { 
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.registrar-box .link a { 
+  color: black;
+  text-decoration: none;
+}
+
+.registrar-box .link a:hover { 
+  text-decoration: underline;
+}
