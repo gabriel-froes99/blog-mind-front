@@ -1,5 +1,5 @@
 
-.registrar-page { 
+dentro de cadastro tambem temos o cadastro.css e este é seu conteudo .registrar-page { 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,14 +19,14 @@
   padding: 20px; 
 }
 
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
   .phone-frame {
     border: 10px solid #333; 
     border-radius: 40px; 
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
     padding: 0; 
   }
-}
+} */
 
 
 .registrar-box { 
@@ -122,4 +122,7 @@
 
 .registrar-box .link a:hover { 
   text-decoration: underline;
+}
+.login-link{
+  color:black;
 }

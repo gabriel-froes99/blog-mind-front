@@ -8,17 +8,48 @@ const Registrar = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   // Função para lidar com o envio do formulário
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); 
-    // A lógica de backend
-    if (password !== confirmPassword) {
-      alert('As senhas não coincidem!');
-      return;
-    }
-    console.log('Formulário de registro enviado. Dados:', { email, password, confirmPassword });
+  const handleSubmit = async (event: React.FormEvent) => {
+      event.preventDefault();
+      try {
+        const response = await fetch('http://localhost:3000/cadastro', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password,confirmPassword }),
+        });
   
-    alert('Conta criada com sucesso!');
-  };
+        if (response.ok) {
+          const data = await response.json();
+          console.log('cadastro bem-sucedido:', data);
+          alert('cadastro realizado com sucesso!');
+          // Aqui você pode redirecionar o usuário ou salvar o token de autenticação, por exemplo.
+        } else {
+          // A requisição foi feita, mas o servidor respondeu com um erro (4xx, 5xx)
+          const errorStatus = response.status;
+          let errorMessage = response.statusText; // Fallback inicial
+          try {
+            const errorData = await response.json(); // Tenta ler o corpo do erro como JSON
+            if (errorData && errorData.message) {
+              errorMessage = errorData.message;
+            }
+          } catch (jsonError) {
+            // O corpo do erro não era JSON ou houve outro erro ao parsear.
+            // errorMessage já é response.statusText, o que é um bom fallback.
+            console.warn('Não foi possível parsear a resposta de erro como JSON:', jsonError);
+          }
+          console.error(`Falha no cadastro: Status ${errorStatus}`, errorMessage);
+          alert(`Erro no cadastro (Código: ${errorStatus}): ${errorMessage}`);
+        }
+      } catch (error: any) { // Captura erros de rede ou outros que impedem a requisição
+        console.error('Erro ao conectar com o servidor:', error);
+        let alertMessage = 'Não foi possível conectar ao servidor. Tente novamente mais tarde.';
+        if (error && error.message) {
+          alertMessage += ` Detalhe: ${error.message}`;
+        }
+        alert(alertMessage);
+      }
+    };
 
   return (
     <div className="container">
