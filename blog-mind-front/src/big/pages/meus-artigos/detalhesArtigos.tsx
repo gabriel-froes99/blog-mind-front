@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom'; // Importa useParams e useNavigate
 import './ArticleDetail.css'; // O arquivo CSS para esta tela
-import profilePic from '../../big/assets/imgHome/profile.jpg'; // Importa a imagem de perfil para o header
+import profilePic from '../../assets/imgHome/profile.png'; // Importa a imagem de perfil para o header
 
 // Interface para definir a estrutura de dados de um artigo (reflete o que vem do backend)
 interface Article {

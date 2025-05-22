@@ -131,7 +131,7 @@ const MeusArtigos: React.FC = () => {
                         </>
                     ) : (
                         <div className="auth-links">
-                            <Link to="/login">Entrar</Link>
+                            <Link to="/">Entrar</Link>
                             <Link to="/cadastro">Registrar</Link>
                         </div>
                     )}

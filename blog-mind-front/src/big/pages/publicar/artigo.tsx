@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Adicione useEffect
+import React, { useState, useEffect } from 'react'; // <-- Adicione useEffect aqui
 import './Artigo.css';
 
 // Importe os ícones/imagens necessários.
@@ -13,9 +13,9 @@ const Artigo = () => {
   const [imageBlobData, setImageBlobData] = useState<string | null>(null);
   const [imageMimeType, setImageMimeType] = useState<string | null>(null);
   const [articleContent, setArticleContent] = useState('');
-  const [currentUserId, setCurrentUserId] = useState<number | null>(null); // Novo estado para o ID do usuário logado
+  const [currentUserId, setCurrentUserId] = useState<number | null>(null); // <-- Novo estado para o ID do usuário logado
 
-  // useEffect para carregar o userId do localStorage quando o componente montar
+  // <-- NOVO: useEffect para carregar o userId do localStorage quando o componente montar
   useEffect(() => {
     const userIdString = localStorage.getItem('userId');
     if (userIdString) {
@@ -67,7 +67,7 @@ const Artigo = () => {
       return;
     }
 
-    // Validação do userId
+    // <-- NOVO: Validação do userId
     if (currentUserId === null) {
       alert('Não foi possível obter o ID do usuário logado. Por favor, faça login novamente.');
       return;
@@ -80,7 +80,7 @@ const Artigo = () => {
       imageBlob: imageBlobData,
       imageMimeType: imageMimeType,
       content: articleContent,
-      userId: currentUserId, // *** AQUI ESTÁ A CHAVE! Enviando o userId ***
+      userId: currentUserId, // <-- NOVO: Enviando o userId
     };
 
     try {
