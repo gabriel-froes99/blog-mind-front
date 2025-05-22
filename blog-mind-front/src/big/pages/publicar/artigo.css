@@ -1,16 +1,18 @@
 /* Estilos globais e de corpo para a página de artigo */
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* Usando Arial como fonte genérica */
-    background-color: #f0f2f5; /* Fundo claro para a página */
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    
 }
 
 .artigo-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
-    width: 100%; /* Garante que ocupe toda a largura */
-    box-sizing: border-box; /* Inclui padding e bordas na largura e altura */
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15%;
 }
 
 /* Header */
@@ -18,17 +20,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff; /* Fundo branco do header */
-    padding: 15px 50px; /* Padding nas laterais */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 100%; /* Ocupa a largura total */
-    box-sizing: border-box; /* Inclui padding na largura */
+    background-color: #fff;
+    padding: 15px 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .artigo-logo {
     font-size: 2.5em;
     font-weight: bold;
-    color: #333; /* Cor do logo "M." */
+    color: #333;
 }
 
 .artigo-nav {
@@ -38,48 +40,48 @@ body {
 
 .artigo-nav a {
     text-decoration: none;
-    color: #555; /* Cor dos links */
-    margin-left: 20px; /* Espaçamento entre os links */
+    color: #555;
+    margin-left: 20px;
     font-size: 1em;
     transition: color 0.3s ease;
 }
 
 .artigo-nav a:hover {
-    color: #007bff; /* Cor ao passar o mouse */
+    color: #007bff;
 }
 
 .artigo-nav .separator {
-    color: #ccc; /* Cor do separador "|" */
-    margin: 0 10px; /* Espaçamento para o separador */
+    color: #ccc;
+    margin: 0 10px;
 }
 
 .artigo-nav .profile-link {
     display: flex;
     align-items: center;
-    color: #333; /* Cor do texto "Publicar" */
+    color: #333;
     font-weight: bold;
-    text-decoration: none; /* Garante que não tenha sublinhado */
+    text-decoration: none;
 }
 
 .artigo-nav .profile-pic {
-    width: 30px; /* Tamanho da imagem de perfil */
+    width: 30px;
     height: 30px;
-    border-radius: 50%; /* Torna a imagem redonda */
-    margin-left: 10px; /* Espaço entre "Publicar" e a imagem */
-    object-fit: cover; /* Ajusta a imagem para cobrir o espaço */
+    border-radius: 50%;
+    margin-left: 10px;
+    object-fit: cover;
 }
 
 /* Conteúdo principal do formulário */
 .artigo-content-wrapper {
-    flex: 1; /* Permite que o wrapper do conteúdo ocupe o espaço restante */
-    background-color: #fff; /* Fundo branco do card principal */
-    margin: 30px auto; /* Margem superior/inferior, centraliza horizontalmente */
+    flex: 1;
+    background-color: #fff;
+    margin: 30px auto;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1100px; /* Aumentada a largura máxima da tela */
-    width: 100%; /* Garante que ocupe a largura disponível até o max-width */
-    box-sizing: border-box; /* Inclui padding na largura total */
+    max-width: 1100px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .artigo-form-header {
@@ -88,7 +90,7 @@ body {
     align-items: center;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee; /* Linha sutil abaixo do cabeçalho do formulário */
+    border-bottom: 1px solid #eee;
 }
 
 .artigo-form-header h2 {
@@ -98,8 +100,8 @@ body {
 }
 
 .form-actions {
-    display: flex; /* Para alinhar os botões lado a lado */
-    gap: 15px; /* Espaço entre os botões */
+    display: flex;
+    gap: 15px;
 }
 
 .form-actions button {
@@ -113,7 +115,7 @@ body {
 }
 
 .btn-cancel {
-    background-color: #f44336; /* Vermelho */
+    background-color: #f44336;
     color: #fff;
 }
 
@@ -122,7 +124,7 @@ body {
 }
 
 .btn-save {
-    background-color: #333; /* Cinza escuro */
+    background-color: #333;
     color: #fff;
 }
 
@@ -132,31 +134,31 @@ body {
 
 /* Grid do formulário (colunas esquerda e direita) */
 .artigo-form-grid {
-    display: flex; /* Usar flexbox para as colunas */
-    gap: 30px; /* Espaço entre as colunas */
+    display: flex;
+    gap: 30px;
     margin-bottom: 30px;
 }
 
 .form-left-column {
-    flex: 2; /* A coluna esquerda ocupa mais espaço */
+    flex: 2;
     display: flex;
     flex-direction: column;
 }
 
 .form-right-column {
-    flex: 1; /* A coluna direita ocupa menos espaço */
+    flex: 1;
     display: flex;
-    align-items: flex-start; /* Alinha o placeholder da imagem ao topo da coluna */
+    align-items: flex-start;
     justify-content: center;
 }
 
 .form-group {
     margin-bottom: 20px;
-    width: 100%; /* Garante que o grupo ocupe a largura total da coluna */
+    width: 100%;
 }
 
 .form-group label {
-    display: block; /* A label ocupa sua própria linha */
+    display: block;
     font-size: 1.1em;
     color: #333;
     margin-bottom: 10px;
@@ -165,39 +167,42 @@ body {
 
 .form-group input[type="text"],
 .form-group textarea {
-    width: 100%; /* Ocupa 100% da largura do seu container pai */
+    width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    box-sizing: border-box; /* Inclui padding e bordas na largura total */
+    box-sizing: border-box;
     transition: border-color 0.3s ease;
-    background-color: #fff; /* Fundo branco para os inputs */
+    background-color: #fff;
+    color: black;
 }
 
 .form-group input[type="text"]:focus,
 .form-group textarea:focus {
-    outline: none; /* Remove o contorno padrão do navegador */
-    border-color: #007bff; /* Borda azul ao focar */
+    outline: none;
+    border-color: #007bff;
 }
 
 .form-group textarea {
-    min-height: 250px; /* Altura mínima da área de texto */
-    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 250px;
+    resize: vertical;
 }
 
-.image-input-group {
-    display: flex; /* Para alinhar o input de texto e o botão */
-    align-items: center;
-    gap: 10px; /* Espaço entre o input e o botão */
+.image-input-group.vertical-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.image-input-group input[type="text"] {
-    flex: 1; /* O input de texto ocupa o espaço restante */
+.image-input-group.vertical-layout input[type="text"] {
+    flex: none;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 .btn-select-image {
-    background-color: #007bff; /* Azul */
+    background-color: #007bff;
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -207,7 +212,8 @@ body {
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     font-weight: bold;
-    white-space: nowrap; /* Evita que o texto do botão quebre linha */
+    align-self: flex-start;
+    max-width: fit-content;
 }
 
 .btn-select-image:hover {
@@ -215,24 +221,30 @@ body {
 }
 
 .image-placeholder {
-    width: 100%; /* Ocupa 100% da largura da coluna direita */
-    height: 180px; /* Altura fixa do placeholder da imagem */
-    background-color: #e9ecef; /* Cor cinza clara */
-    border: 1px dashed #ced4da; /* Borda pontilhada */
+    width: 100%;
+    height: 180px;
+    background-color: #e9ecef;
+    border: 1px dashed #ced4da;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Garante que o ícone ou prévia da imagem não transbordem */
+    overflow: hidden;
+}
+
+.image-placeholder .image-icon,
+.image-placeholder .image-preview { /* Adicionado estilo para a prévia da imagem */
+    max-width: 100%; /* Garante que a imagem não transborde */
+    max-height: 100%; /* Garante que a imagem não transborde */
+    object-fit: contain; /* Redimensiona a imagem para caber, mantendo proporção */
 }
 
 .image-placeholder .image-icon {
-    width: 60px; /* Tamanho do ícone de imagem */
+    width: 60px;
     height: 60px;
-    opacity: 0.5; /* Suaviza a cor do ícone */
+    opacity: 0.5;
 }
 
-/* Estilo para o campo de texto de artigo completo (largura total) */
 .form-group.full-width {
-    width: 100%; /* Garante que ocupe a largura total do container pai */
+    width: 100%;
 }

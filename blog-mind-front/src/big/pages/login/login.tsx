@@ -18,19 +18,25 @@ function Login() {
         },
         body: JSON.stringify({ email, password }),
       });
-      
 
       if (response.ok) {
         const data = await response.json();
         console.log('Login bem-sucedido:', data);
         alert('Login realizado com sucesso!');
-        navigate('/home'); 
+
+        // --- CORREÇÃO AQUI ---
+        // Armazena o e-mail do usuário no localStorage
+        localStorage.setItem('userEmail', data.email);
+        // Armazena o ID do usuário no localStorage
+        localStorage.setItem('userId', data.userId); // <<< ESTA LINHA FOI ADICIONADA/DESCOMENTADA
+        // --- FIM DA CORREÇÃO ---
+
+        navigate('/home'); // Ou para '/' dependendo da sua rota inicial após login
       } else {
-        
         const errorStatus = response.status;
-        let errorMessage = response.statusText; 
+        let errorMessage = response.statusText;
         try {
-          const errorData = await response.json(); 
+          const errorData = await response.json();
           if (errorData && errorData.message) {
             errorMessage = errorData.message;
           }
@@ -40,7 +46,7 @@ function Login() {
         console.error(`Falha no login: Status ${errorStatus}`, errorMessage);
         alert(`Erro no login (Código: ${errorStatus}): ${errorMessage}`);
       }
-    } catch (error: any) { // Captura erros de rede ou outros que impedem a requisição
+    } catch (error: any) {
       console.error('Erro ao conectar com o servidor:', error);
       let alertMessage = 'Não foi possível conectar ao servidor. Tente novamente mais tarde.';
       if (error && error.message) {
@@ -51,7 +57,7 @@ function Login() {
   };
 
   return (
-     <div className="container">
+    <div className="container">
       <div className="left">
         <div className="logo-box">
           <h1 className="logo">M.</h1>
@@ -86,8 +92,8 @@ function Login() {
 
             <div className="forgot-password">
               <Link to="/esqueci"><a href="#">Esqueceu a senha?</a></Link>
-            
-            </div>  
+
+            </div>
 
             <button type="submit">Entrar</button>
             <Link to="/cadastro">
@@ -95,7 +101,7 @@ function Login() {
                 Novo usuário? <a href="#">Clique aqui</a>
               </p>
             </Link>
-            
+
           </form>
         </div>
       </div>

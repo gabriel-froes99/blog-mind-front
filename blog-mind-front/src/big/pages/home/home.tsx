@@ -1,49 +1,86 @@
 
+import { useState, useEffect } from 'react'; // Importar useState e useEffect
 import './home.css';
-import CellImage from '../../assets/imgHome/cell.png'; // Usado para 5G
-import CodImage from '../../assets/imgHome/cod.png';   // Usado para Artigo Destaque e Blockchain
-import TsImage from '../../assets/imgHome/ts.png';     // Usado para TypeScript
-import { Link } from 'react-router-dom';
+import CellImage from '../../assets/imgHome/cell.png';
+import CodImage from '../../assets/imgHome/cod.png';
+import TsImage from '../../assets/imgHome/ts.png';
+import profilePic from '../../assets/imgHome/profile.png'; // Importar a imagem de perfil
+import { Link, useNavigate } from 'react-router-dom'; // Importar useNavigate para redirecionamento no logout
+
 
 const HomeScreen = () => {
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const navigate = useNavigate(); // Hook para navegação
+
+  useEffect(() => {
+    // Ao carregar o componente, tenta obter o e-mail do localStorage
+    const email = localStorage.getItem('userEmail');
+    if (email) {
+      setUserEmail(email);
+    }
+  }, []); // O array vazio [] garante que este efeito roda apenas uma vez, na montagem do componente
+
+  const handleLogout = () => {
+    localStorage.removeItem('userEmail'); // Remove o e-mail do localStorage
+    localStorage.removeItem('userId'); // **Adicionado: Remover o userId também**
+    setUserEmail(null); // Limpa o estado
+    alert('Você foi desconectado.');
+    navigate('/'); 
+  };
+
   return (
     <div className="home-container">
       {/* Header */}
-      <header className="header">
-        <div className="logo">M.</div>
-        <nav className="nav">
-          <a href="/">Home</a>
-          <a href="/articles">Artigos</a>
-          <Link to="/artigo">
-            <a >publicar</a>
-          </Link>
-          <div className="auth-links">
-            <a href="/login">Entrar</a>
-            <a href="/register">Registrar</a>
-          </div>
+      <header className="header"> 
+        <div className="logo">M.</div> 
+        <nav className="nav"> 
+          <Link to="/home">Home</Link>
+          <Link to="/articles">Artigos</Link> 
+
+          {userEmail ? (
+            // Se o e-mail existir (usuário logado)
+            <>
+              {/* Span para exibir o e-mail do usuário */}
+              <span className="user-email">{userEmail}</span>
+
+              {/* Link Publicar com imagem de perfil */}
+              <Link to="/artigo" className="profile-link">
+                Publicar
+                <img src={profilePic} alt="Profile" className="profile-pic" />
+              </Link>
+              
+              {/* BOTÃO/LINK "MEUS ARTIGOS" ADICIONADO AQUI */}
+              <Link to="/meus-artigos" className="my-articles-link">Meus Artigos</Link>
+
+              {/* Botão de Sair */}
+              <button className="btn-logout" onClick={handleLogout}>Sair</button>
+            </>
+          ) : (
+            // Se não houver e-mail (usuário não logado)
+            <div className="auth-links"> {/* Mantendo sua classe 'auth-links' */}
+              <Link to="/">Entrar</Link> {/* Ajustado para /login */}
+              <Link to="/cadastro">Registrar</Link> {/* Ajustado para /cadastro */}
+            </div>
+          )}
         </nav>
       </header>
 
       <div className="content">
         {/* Sidebar */}
         <aside className="sidebar">
-          <h2 className="sidebar-title">New</h2> {/* Título "New" ou "Novo" */}
+          <h2 className="sidebar-title">New</h2>
 
           <div className="sidebar-article">
-            {/* Imagem oculta via CSS, se quiser que ela apareça, remova o display: none do CSS */}
-            {/* <img src={CellImage} alt="Celular" className="article-image" /> */}
             <h3>Inteligência Artificial: O Futuro da Automação e da Transformação Digital</h3>
             <p>Neste artigo, exploramos como a inteligência artificial está mudando o futuro dos negócios e da teoria.</p>
           </div>
 
           <div className="sidebar-article">
-            {/* <img src={CodImage} alt="Código" className="article-image" /> */}
             <h3>Computação Quantica: O Próximo Grande Saito para a Tecnologia</h3>
             <p>A computação quantica permite revalucizar a transparência processual na informação, aumentado as limitações dos computadores tradicionais.</p>
           </div>
 
           <div className="sidebar-article">
-            {/* <img src={TsImage} alt="TypeScript" className="article-image" /> */}
             <h3>Como a Internet das Coisas (IoT) Está Moldando o Futuro das Cidades Inteligentes</h3>
             <p>A Internet das Coisas (IoT) é um dos países das coisas inteligentes, conectando dispositivos de alta a alta a internet.</p>
           </div>
@@ -59,21 +96,18 @@ const HomeScreen = () => {
               <div className="article-meta">
                 <span>Por John Doe</span>
                 <span>Março 20, 2025</span>
-                {/* As estatísticas (visualizações/comentários) não aparecem na imagem principal, 
-                    então removi para ser fiel ao design. Se precisar, descomente. */}
-                {/* <span>56 visualizações</span>
-                <span>01 comentário</span> */}
               </div>
             </div>
           </article>
 
           {/* Read More Button */}
           <div className="read-more">
-            <button>LER MAIS</button>
+            {/* Você pode ajustar este botão "LER MAIS" para ir para o ArticleDetailScreen com um ID real */}
+            <button>LER MAIS</button> 
           </div>
 
-           {/* Secondary Articles - CONTAINER CORRETO */}
-          <div className="secondary-articles-grid"> {/* <-- ESTE DIV É CRUCIAL */}
+          {/* Secondary Articles - CONTAINER CORRETO */}
+          <div className="secondary-articles-grid">
             <article className="secondary-article" data-number="01">
               <img src={CellImage} alt="5G" className="article-thumbnail" />
               <div className="article-info">
@@ -103,7 +137,7 @@ const HomeScreen = () => {
                 </div>
               </div>
             </article>
-          </div> {/* <-- Feche este div */}
+          </div>
         </main>
       </div>
     </div>
