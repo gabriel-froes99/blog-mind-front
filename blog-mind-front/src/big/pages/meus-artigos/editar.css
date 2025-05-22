@@ -1,0 +1,242 @@
+/* src/big/pages/publicar/EditarArtigo.css */
+
+.editar-artigo-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Cor de fundo suave */
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-top: 22%;
+}
+
+/* Header */
+.editar-artigo-header {
+    background-color: #fff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editar-artigo-logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #9dcffb; /* Cor principal */
+}
+
+.editar-artigo-nav a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.editar-artigo-nav a:hover {
+    color: #007bff;
+}
+
+.editar-artigo-nav .separator {
+    margin: 0 10px;
+    color: #ccc;
+}
+
+.editar-artigo-nav .profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Espaçamento entre texto e imagem */
+    color: #007bff;
+    font-weight: bold;
+}
+
+.editar-artigo-nav .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Conteúdo Principal do Formulário */
+.editar-artigo-content-wrapper {
+    flex-grow: 1;
+    padding: 30px;
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.editar-artigo-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.editar-artigo-form-header h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin: 0;
+}
+
+.form-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.form-actions .btn-cancel {
+    background-color: #dc3545; /* Vermelho para cancelar */
+    color: white;
+}
+
+.form-actions .btn-cancel:hover {
+    background-color: #c82333;
+}
+
+.form-actions .btn-save {
+    background-color: #343a40; /* Preto/cinza escuro para salvar (inspirado na imagem) */
+    color: white;
+}
+
+.form-actions .btn-save:hover {
+    background-color: #23272b;
+}
+
+/* Layout do Formulário */
+.editar-artigo-form-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Coluna da esquerda maior que a da direita */
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-group textarea {
+    min-height: 200px; /* Altura mínima para o campo de conteúdo */
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Imagem Input Group */
+.image-input-group.vertical-layout {
+    display: flex;
+    flex-direction: column; /* Coloca o input e o botão um abaixo do outro */
+    gap: 10px;
+}
+
+.image-input-group input[type="text"] {
+    flex-grow: 1; /* Ocupa o espaço restante */
+}
+
+.btn-select-image {
+    padding: 10px 15px;
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-select-image:hover {
+    background-color: #0056b3;
+}
+
+/* Placeholder da Imagem */
+.image-placeholder {
+    width: 100%;
+    height: 250px; /* Altura fixa para o placeholder da imagem */
+    background-color: #e9ecef;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Garante que a imagem não transborde */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.image-placeholder .image-icon {
+    width: 80px;
+    height: 80px;
+    opacity: 0.5;
+}
+
+.image-placeholder .image-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta a imagem dentro do contêiner sem cortar */
+}
+
+/* Full Width para o textarea */
+.form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa todas as colunas no grid */
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .editar-artigo-form-grid {
+        grid-template-columns: 1fr; /* Coluna única em telas menores */
+    }
+
+    .editar-artigo-header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .editar-artigo-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .editar-artigo-nav a,
+    .editar-artigo-nav .separator {
+        margin: 5px 10px;
+    }
+
+    .editar-artigo-content-wrapper {
+        padding: 15px;
+        margin: 15px auto;
+    }
+}

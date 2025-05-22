@@ -70,7 +70,7 @@ const MeusArtigos: React.FC = () => {
         setUserEmail(null);
         setUserId(null);
         alert('Você foi desconectado.');
-        navigate('/login');
+        navigate('/');
     };
 
     const handleDeleteArticle = async (articleId: number) => {
@@ -164,7 +164,7 @@ const MeusArtigos: React.FC = () => {
                                     </div>
                                     <div className="article-card-actions">
                                         <Link to={`/articles/${article.id}`} className="btn-view">Ver</Link>
-                                        <Link to={`/artigo/editar/${article.id}`} className="btn-edit">Editar</Link> {/* Rota para edição */}
+                                        <Link to={`/editar/${article.id}`} className="btn-edit">Editar</Link> {/* Rota para edição */}
                                         <button onClick={() => handleDeleteArticle(article.id)} className="btn-delete">Excluir</button>
                                     </div>
                                 </div>
