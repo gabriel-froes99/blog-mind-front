@@ -1,0 +1,226 @@
+/* frontend/src/pages/Articles/articlesPage.css */
+
+.articles-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Cor de fundo suave */
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-top: 30%;
+}
+
+.articles-header {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.articles-logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007bff; /* Azul vibrante para o logo */
+}
+
+.articles-nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.articles-nav a:hover {
+    color: #007bff;
+}
+
+.articles-nav .separator {
+    margin: 0 10px;
+    color: #ccc;
+}
+
+.articles-nav .profile-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.articles-nav .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 8px;
+    border: 1px solid #eee;
+}
+
+.articles-nav button {
+    background-color: #dc3545; /* Vermelho para o botão de sair */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.articles-nav button:hover {
+    background-color: #c82333;
+}
+
+.articles-main-content {
+    flex-grow: 1;
+    padding: 30px 50px;
+    max-width: 1200px; /* Limita a largura do conteúdo principal */
+    margin: 20px auto; /* Centraliza o conteúdo */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.articles-page-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Colunas responsivas */
+    gap: 30px; /* Espaço entre os cartões */
+    justify-content: center; /* Centraliza os itens na grade */
+}
+
+.article-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que os cards tenham altura igual na linha */
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.article-card-image {
+    width: 100%;
+    height: 200px; /* Altura fixa para a imagem */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-bottom: 1px solid #eee;
+}
+
+.article-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que o conteúdo cresça para preencher o espaço */
+}
+
+.article-card-title {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita o título a 2 linhas */
+    -webkit-box-orient: vertical;
+}
+
+.article-card-description {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    flex-grow: 1; /* Permite que a descrição ocupe o máximo de espaço */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a descrição a 3 linhas */
+    -webkit-box-orient: vertical;
+}
+
+.article-card-meta {
+    font-size: 0.85em;
+    color: #999;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.read-more-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Empurra o botão para o final do card */
+}
+
+.read-more-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para mensagens de carregamento/erro */
+.articles-container.loading,
+.articles-container.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #555;
+    height: 100vh; /* Ocupa a tela inteira */
+}
+
+.articles-container.error {
+    color: #dc3545; /* Vermelho para mensagens de erro */
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .articles-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .articles-nav {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .articles-nav a,
+    .articles-nav .separator,
+    .articles-nav button {
+        margin: 5px 10px;
+    }
+
+    .articles-main-content {
+        padding: 20px;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}

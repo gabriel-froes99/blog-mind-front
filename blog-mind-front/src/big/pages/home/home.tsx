@@ -4,8 +4,9 @@ import './home.css';
 import CellImage from '../../assets/imgHome/cell.png';
 import CodImage from '../../assets/imgHome/cod.png';
 import TsImage from '../../assets/imgHome/ts.png';
-import profilePic from '../../assets/imgHome/profile.png'; // Importar a imagem de perfil
+import profilePic from '../../assets/imgHome/default-avatar.png'; // Importar a imagem de perfil
 import { Link, useNavigate } from 'react-router-dom'; // Importar useNavigate para redirecionamento no logout
+import Logo from '../../assets/imgHome/logo.png';
 
 
 const HomeScreen = () => {
@@ -32,10 +33,10 @@ const HomeScreen = () => {
     <div className="home-container">
       {/* Header */}
       <header className="header"> 
-        <div className="logo">M.</div> 
+        <img src={Logo} alt="Logo" className="logo" />
         <nav className="nav"> 
           <Link to="/home">Home</Link>
-          <Link to="/articles">Artigos</Link> 
+          <Link to="/artigos">Artigos</Link> 
 
           {userEmail ? (
             // Se o e-mail existir (usuário logado)

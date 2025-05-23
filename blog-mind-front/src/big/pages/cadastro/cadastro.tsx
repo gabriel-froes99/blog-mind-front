@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './cadastro.css'; 
 import { Link } from 'react-router-dom'; 
+import Logo from '../../assets/imgHome/logo.png';
 
 const Registrar = () => { 
   const [email, setEmail] = useState('');
@@ -55,7 +56,7 @@ const Registrar = () => {
     <div className="container">
       <div className="left">
         <div className="logo-box">
-          <h1 className="logo">M.</h1>
+          <img src={Logo} alt="Logo" className="logo-img" />
           <p className="slogan">Inovação ao Seu Alcance.</p>
         </div>
       </div>

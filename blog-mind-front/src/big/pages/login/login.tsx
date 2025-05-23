@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { Link, useNavigate } from "react-router-dom";
+import Logo from '../../assets/imgHome/logo.png';
 
 
 function Login() {
@@ -60,7 +61,7 @@ function Login() {
     <div className="container">
       <div className="left">
         <div className="logo-box">
-          <h1 className="logo">M.</h1>
+           <img src={Logo} alt="Logo" className="logo" />
           <p className="slogan">Inovação ao seu alcance.</p>
         </div>
       </div>
