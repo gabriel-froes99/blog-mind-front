@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f0f2f5; /* Cor de fundo suave */
+    background-color: #f0f2f5; 
     color: #333;
     font-family: 'Arial', sans-serif;
     margin-top: 22%;
 }
 
-/* Header */
+
 .editar-artigo-header {
     background-color: #fff;
     padding: 15px 30px;
@@ -23,7 +23,7 @@
 .editar-artigo-logo {
     font-size: 2em;
     font-weight: bold;
-    color: #9dcffb; /* Cor principal */
+    color: #9dcffb; 
 }
 
 .editar-artigo-nav a {
@@ -46,7 +46,7 @@
 .editar-artigo-nav .profile-link {
     display: inline-flex;
     align-items: center;
-    gap: 5px; /* Espaçamento entre texto e imagem */
+    gap: 5px; 
     color: #007bff;
     font-weight: bold;
 }
@@ -58,7 +58,7 @@
     object-fit: cover;
 }
 
-/* Conteúdo Principal do Formulário */
+
 .editar-artigo-content-wrapper {
     flex-grow: 1;
     padding: 30px;
@@ -96,7 +96,7 @@
 }
 
 .form-actions .btn-cancel {
-    background-color: #dc3545; /* Vermelho para cancelar */
+    background-color: #dc3545; 
     color: white;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .form-actions .btn-save {
-    background-color: #343a40; /* Preto/cinza escuro para salvar (inspirado na imagem) */
+    background-color: #343a40; 
     color: white;
 }
 
@@ -116,7 +116,7 @@
 /* Layout do Formulário */
 .editar-artigo-form-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Coluna da esquerda maior que a da direita */
+    grid-template-columns: 2fr 1fr; 
     gap: 30px;
     margin-bottom: 30px;
 }
@@ -140,7 +140,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
-    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+    box-sizing: border-box; 
     transition: border-color 0.3s ease;
 }
 
@@ -152,24 +152,24 @@
 }
 
 .form-group textarea {
-    min-height: 200px; /* Altura mínima para o campo de conteúdo */
-    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 200px; 
+    resize: vertical;
 }
 
 /* Imagem Input Group */
 .image-input-group.vertical-layout {
     display: flex;
-    flex-direction: column; /* Coloca o input e o botão um abaixo do outro */
+    flex-direction: column; 
     gap: 10px;
 }
 
 .image-input-group input[type="text"] {
-    flex-grow: 1; /* Ocupa o espaço restante */
+    flex-grow: 1; 
 }
 
 .btn-select-image {
     padding: 10px 15px;
-    background-color: #007bff; /* Azul vibrante */
+    background-color: #007bff; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -183,16 +183,16 @@
     background-color: #0056b3;
 }
 
-/* Placeholder da Imagem */
+
 .image-placeholder {
     width: 100%;
-    height: 250px; /* Altura fixa para o placeholder da imagem */
+    height: 250px; 
     background-color: #e9ecef;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Garante que a imagem não transborde */
+    overflow: hidden; 
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
@@ -205,18 +205,18 @@
 .image-placeholder .image-preview {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajusta a imagem dentro do contêiner sem cortar */
+    object-fit: contain; 
 }
 
-/* Full Width para o textarea */
+
 .form-group.full-width {
-    grid-column: 1 / -1; /* Ocupa todas as colunas no grid */
+    grid-column: 1 / -1; 
 }
 
-/* Responsividade Básica */
+
 @media (max-width: 768px) {
     .editar-artigo-form-grid {
-        grid-template-columns: 1fr; /* Coluna única em telas menores */
+        grid-template-columns: 1fr; 
     }
 
     .editar-artigo-header {

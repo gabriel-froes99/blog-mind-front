@@ -1,37 +1,36 @@
 
-import { useState, useEffect } from 'react'; // Importar useState e useEffect
+import { useState, useEffect } from 'react'; 
 import './home.css';
 import CellImage from '../../assets/imgHome/cell.png';
 import CodImage from '../../assets/imgHome/cod.png';
 import TsImage from '../../assets/imgHome/ts.png';
-import profilePic from '../../assets/imgHome/default-avatar.png'; // Importar a imagem de perfil
-import { Link, useNavigate } from 'react-router-dom'; // Importar useNavigate para redirecionamento no logout
+import profilePic from '../../assets/imgHome/default-avatar.png'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import Logo from '../../assets/imgHome/logo.png';
 
 
 const HomeScreen = () => {
   const [userEmail, setUserEmail] = useState<string | null>(null);
-  const navigate = useNavigate(); // Hook para navegação
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    // Ao carregar o componente, tenta obter o e-mail do localStorage
     const email = localStorage.getItem('userEmail');
     if (email) {
       setUserEmail(email);
     }
-  }, []); // O array vazio [] garante que este efeito roda apenas uma vez, na montagem do componente
+  }, []); 
 
   const handleLogout = () => {
-    localStorage.removeItem('userEmail'); // Remove o e-mail do localStorage
-    localStorage.removeItem('userId'); // **Adicionado: Remover o userId também**
-    setUserEmail(null); // Limpa o estado
+    localStorage.removeItem('userEmail'); 
+    localStorage.removeItem('userId'); 
+    setUserEmail(null); 
     alert('Você foi desconectado.');
     navigate('/'); 
   };
 
   return (
     <div className="home-container">
-      {/* Header */}
+      
       <header className="header"> 
         <img src={Logo} alt="Logo" className="logo" />
         <nav className="nav"> 
@@ -39,35 +38,33 @@ const HomeScreen = () => {
           <Link to="/artigos">Artigos</Link> 
 
           {userEmail ? (
-            // Se o e-mail existir (usuário logado)
             <>
-              {/* Span para exibir o e-mail do usuário */}
+           
               <span className="user-email">{userEmail}</span>
 
-              {/* Link Publicar com imagem de perfil */}
               <Link to="/artigo" className="profile-link">
                 Publicar
                 <img src={profilePic} alt="Profile" className="profile-pic" />
               </Link>
               
-              {/* BOTÃO/LINK "MEUS ARTIGOS" ADICIONADO AQUI */}
+            
               <Link to="/meus-artigos" className="my-articles-link">Meus Artigos</Link>
 
-              {/* Botão de Sair */}
+           
               <button className="btn-logout" onClick={handleLogout}>Sair</button>
             </>
           ) : (
-            // Se não houver e-mail (usuário não logado)
-            <div className="auth-links"> {/* Mantendo sua classe 'auth-links' */}
-              <Link to="/">Entrar</Link> {/* Ajustado para /login */}
-              <Link to="/cadastro">Registrar</Link> {/* Ajustado para /cadastro */}
+         
+            <div className="auth-links"> 
+              <Link to="/">Entrar</Link> 
+              <Link to="/cadastro">Registrar</Link> 
             </div>
           )}
         </nav>
       </header>
 
       <div className="content">
-        {/* Sidebar */}
+  
         <aside className="sidebar">
           <h2 className="sidebar-title">New</h2>
 
@@ -87,9 +84,9 @@ const HomeScreen = () => {
           </div>
         </aside>
 
-        {/* Main Content */}
+     
         <main className="main-content">
-          {/* Featured Article */}
+         
           <article className="featured-article">
             <img src={CodImage} alt="Artigo destaque" className="featured-image" />
             <div className="article-content">
@@ -101,13 +98,13 @@ const HomeScreen = () => {
             </div>
           </article>
 
-          {/* Read More Button */}
+       
           <div className="read-more">
-            {/* Você pode ajustar este botão "LER MAIS" para ir para o ArticleDetailScreen com um ID real */}
+          
             <button>LER MAIS</button> 
           </div>
 
-          {/* Secondary Articles - CONTAINER CORRETO */}
+          
           <div className="secondary-articles-grid">
             <article className="secondary-article" data-number="01">
               <img src={CellImage} alt="5G" className="article-thumbnail" />

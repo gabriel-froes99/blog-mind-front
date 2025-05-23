@@ -1,6 +1,4 @@
-/* src/components/ArticleDetail.css */
 
-/* Estilos do Header (duplicados para garantir consistência, idealmente seria um CSS compartilhado) */
 .header {
     display: flex;
     justify-content: space-between;
@@ -19,7 +17,7 @@
 .nav {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espaçamento entre os itens da navegação */
+    gap: 30px; 
 }
 
 .nav a {
@@ -100,10 +98,10 @@
     background-color: #555;
 }
 
-/* Novo estilo para o link "Meus Artigos" no header (para consistência) */
+
 .my-articles-link {
     text-decoration: none;
-    color: #007bff; /* Azul para destaque */
+    color: #007bff;
     font-size: 1em;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -114,24 +112,24 @@
 }
 
 
-/* Estilos Específicos da Tela de Detalhes do Artigo */
+
 .article-detail-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: #f0f2f5;
-    align-items: center; /* Centraliza o conteúdo principal */
+    align-items: center; 
 }
 
 .article-content-wrapper {
     background-color: #fff;
-    margin: 30px auto; /* Centraliza e adiciona margem superior/inferior */
-    padding: 40px 60px; /* Mais padding para o conteúdo */
+    margin: 30px auto;
+    padding: 40px 60px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 900px; /* Largura máxima para o conteúdo do artigo */
+    max-width: 900px; 
     width: 100%;
-    box-sizing: border-box; /* Inclui padding na largura total */
+    box-sizing: border-box; 
 }
 
 .article-detail-title {
@@ -148,12 +146,12 @@
     margin-bottom: 30px;
     line-height: 1.6;
     text-align: center;
-    font-style: italic; /* A descrição pode ser um resumo */
+    font-style: italic; 
 }
 
 .article-detail-meta {
     display: flex;
-    justify-content: center; /* Centraliza autor e data */
+    justify-content: center; 
     gap: 20px;
     font-size: 0.95em;
     color: #777;
@@ -168,7 +166,7 @@
 
 .article-detail-image-container {
     width: 100%;
-    max-height: 500px; /* Altura máxima da imagem */
+    max-height: 500px; 
     overflow: hidden;
     margin-bottom: 40px;
     border-radius: 5px;
@@ -178,8 +176,8 @@
 .article-detail-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cobre a área sem distorcer, cortando se necessário */
-    display: block; /* Remove espaço extra abaixo da imagem */
+    object-fit: cover; 
+    display: block; 
 }
 
 .article-detail-body {
@@ -190,7 +188,7 @@
 }
 
 .article-detail-body p {
-    margin-bottom: 1.5em; /* Espaçamento entre parágrafos */
+    margin-bottom: 1.5em; 
 }
 
 .back-button-container {
@@ -206,14 +204,14 @@
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    display: inline-block; /* Para aplicar padding e border-radius */
+    display: inline-block; 
 }
 
 .back-button:hover {
     background-color: #0056b3;
 }
 
-/* Estilos para mensagens de carregamento/erro */
+
 .article-detail-container.loading,
 .article-detail-container.error,
 .article-detail-container.not-found {

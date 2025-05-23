@@ -1,31 +1,31 @@
 // src/components/ArticleDetailScreen.tsx
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom'; // Importa useParams e useNavigate
-import './ArticleDetail.css'; // O arquivo CSS para esta tela
-import profilePic from '../../assets/imgHome/profile.png'; // Importa a imagem de perfil para o header
+import { useParams, Link, useNavigate } from 'react-router-dom'; 
+import './ArticleDetail.css'; 
+import profilePic from '../../assets/imgHome/profile.png'; 
 
-// Interface para definir a estrutura de dados de um artigo (reflete o que vem do backend)
+
 interface Article {
     id: number;
     title: string;
-    description: string; // Lembre-se que em seu backend atual, 'description' é o conteúdo completo
-    image_blob?: string; // Base64 da imagem, opcional
-    image_mime_type?: string; // Tipo MIME da imagem (ex: 'image/jpeg'), opcional
+    description: string; 
+    image_blob?: string; 
+    image_mime_type?: string; 
     date: string;
     author: string;
-    user_id: number; // Adicionado user_id para consistência, embora não usado diretamente aqui
+    user_id: number; 
 }
 
 const ArticleDetailScreen: React.FC = () => {
-    const { id } = useParams<{ id: string }>(); // Pega o ID do artigo da URL
-    const navigate = useNavigate(); // Hook para navegação
+    const { id } = useParams<{ id: string }>(); 
+    const navigate = useNavigate(); 
     const [article, setArticle] = useState<Article | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [userEmail, setUserEmail] = useState<string | null>(null);
-    const [userId, setUserId] = useState<string | null>(null); // Para o header e verificação
+    const [userId, setUserId] = useState<string | null>(null); 
 
-    // Efeito para carregar o e-mail e ID do usuário no header
+   
     useEffect(() => {
         const email = localStorage.getItem('userEmail');
         const storedUserId = localStorage.getItem('userId');
@@ -37,10 +37,10 @@ const ArticleDetailScreen: React.FC = () => {
         }
     }, []);
 
-    // Efeito para buscar os detalhes do artigo
+ 
     useEffect(() => {
         const fetchArticle = async () => {
-            if (!id) { // Evita buscar se o ID não estiver presente na URL
+            if (!id) { 
                 setError("ID do artigo não fornecido.");
                 setLoading(false);
                 return;
@@ -61,15 +61,15 @@ const ArticleDetailScreen: React.FC = () => {
         };
 
         fetchArticle();
-    }, [id]); // Dependência do ID, para re-buscar se o ID na URL mudar
+    }, [id]); 
 
     const handleLogout = () => {
         localStorage.removeItem('userEmail');
-        localStorage.removeItem('userId'); // Remove o userId também
+        localStorage.removeItem('userId'); 
         setUserEmail(null);
         setUserId(null);
         alert('Você foi desconectado.');
-        navigate('/login'); // Redireciona para a página de login após o logout
+        navigate('/login'); 
     };
 
     if (loading) {
@@ -84,7 +84,7 @@ const ArticleDetailScreen: React.FC = () => {
         return <div className="article-detail-container not-found">Artigo não encontrado.</div>;
     }
 
-    // Formatar a data
+    
     const articleDate = new Date(article.date).toLocaleDateString('pt-BR', {
         year: 'numeric',
         month: 'long',
@@ -93,12 +93,12 @@ const ArticleDetailScreen: React.FC = () => {
 
     return (
         <div className="article-detail-container">
-             {/* Header (copiado da HomeScreen para manter a consistência) */}
+             
             <header className="header">
                 <div className="logo">M.</div>
                 <nav className="nav">
                     <Link to="/">Home</Link>
-                    <Link to="/articles">Artigos</Link> {/* Link para a tela de todos os artigos, se tiver */}
+                    <Link to="/articles">Artigos</Link> 
 
                     {userEmail ? (
                         <>
@@ -120,7 +120,7 @@ const ArticleDetailScreen: React.FC = () => {
                 </nav>
             </header>
 
-            {/* Conteúdo do Artigo */}
+          
             <main className="article-content-wrapper">
                 <h1 className="article-detail-title">{article.title}</h1>
                 <p className="article-detail-description">{article.description}</p>
@@ -140,17 +140,13 @@ const ArticleDetailScreen: React.FC = () => {
                 )}
 
                 <div className="article-detail-body">
-                    {/* Aqui vai o CONTEÚDO PRINCIPAL do artigo.
-                        Conforme discutido, estou usando 'description' como o corpo completo
-                        com base no seu backend atual. Se você tiver um campo 'content'
-                        dedicado para o corpo completo, substitua 'article.description' por ele.
-                    */}
+                 
                     <p>{article.description}</p>
                 </div>
 
-                {/* Botão de Voltar para a lista de artigos (ou Home) */}
+              
                 <div className="back-button-container">
-                    <Link to="/" className="back-button">Voltar para a Home</Link>
+                    <Link to="/home" className="back-button">Voltar para a Home</Link>
                 </div>
             </main>
         </div>

@@ -25,14 +25,13 @@ function Login() {
         console.log('Login bem-sucedido:', data);
         alert('Login realizado com sucesso!');
 
-        // --- CORREÇÃO AQUI ---
-        // Armazena o e-mail do usuário no localStorage
+   
         localStorage.setItem('userEmail', data.email);
-        // Armazena o ID do usuário no localStorage
-        localStorage.setItem('userId', data.userId); // <<< ESTA LINHA FOI ADICIONADA/DESCOMENTADA
-        // --- FIM DA CORREÇÃO ---
+    
+        localStorage.setItem('userId', data.userId); 
+       
 
-        navigate('/home'); // Ou para '/' dependendo da sua rota inicial após login
+        navigate('/home'); 
       } else {
         const errorStatus = response.status;
         let errorMessage = response.statusText;
@@ -66,7 +65,7 @@ function Login() {
         </div>
       </div>
 
-      {/* Lado direito */}
+     
       <div className="right">
         <div className="form-box">
           <h2>Conectar</h2>

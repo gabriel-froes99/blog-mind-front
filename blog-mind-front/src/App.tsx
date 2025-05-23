@@ -10,6 +10,8 @@ import MeusArtigos from './big/pages/meus-artigos/meusArtigos';
 import ArticleDetailScreen from './big/pages/meus-artigos/detalhesArtigos';
 import EditarArtigo from './big/pages/meus-artigos/editar'; 
 import ArticlesPage from './big/pages/paginaArtigos/articlesPage';
+import Artigo from './big/pages/publicar/artigo';
+
 
 function App() {
   return (
@@ -19,10 +21,11 @@ function App() {
         <Route path='/esqueci' element={<Esqueci />} />
         <Route path='/cadastro' element={<Cadastro />} />
         <Route path='/home' element={<HomeScreen />} />
-        <Route path='/artigos' element={<ArticlesPage />} /> {/* Rota para criar um novo artigo */}
+        <Route path='/artigos' element={<ArticlesPage />} /> 
         <Route path='/meus-artigos' element={<MeusArtigos />} />
-        <Route path='/articles/:id' element={<ArticleDetailScreen/>} /> {/* Rota para ver detalhes de um artigo */}
-        <Route path='/editar/:id' element={<EditarArtigo />} /> {/* <-- NOVA ROTA: Para editar um artigo específico */}
+        <Route path='/articles/:id' element={<ArticleDetailScreen/>} /> 
+        <Route path='/editar/:id' element={<EditarArtigo />} /> 
+        <Route path='artigo' element={<Artigo />} />
         
       </Routes>
     </BrowserRouter>

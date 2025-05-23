@@ -1,4 +1,3 @@
-/* Estilos globais e de corpo para a página de artigo */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -15,7 +14,6 @@ body {
     margin-top: 15%;
 }
 
-/* Header */
 .artigo-header {
     display: flex;
     justify-content: space-between;
@@ -71,7 +69,6 @@ body {
     object-fit: cover;
 }
 
-/* Conteúdo principal do formulário */
 .artigo-content-wrapper {
     flex: 1;
     background-color: #fff;
@@ -132,7 +129,6 @@ body {
     background-color: #555;
 }
 
-/* Grid do formulário (colunas esquerda e direita) */
 .artigo-form-grid {
     display: flex;
     gap: 30px;
@@ -233,10 +229,10 @@ body {
 }
 
 .image-placeholder .image-icon,
-.image-placeholder .image-preview { /* Adicionado estilo para a prévia da imagem */
-    max-width: 100%; /* Garante que a imagem não transborde */
-    max-height: 100%; /* Garante que a imagem não transborde */
-    object-fit: contain; /* Redimensiona a imagem para caber, mantendo proporção */
+.image-placeholder .image-preview {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .image-placeholder .image-icon {

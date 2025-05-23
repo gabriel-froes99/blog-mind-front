@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'; // <-- Adicione useEffect aqui
+import React, { useState, useEffect } from 'react';
 import './Artigo.css';
 
-// Importe os ícones/imagens necessários.
 import profilePic from '../../assets/imgHome/cod.png';
 import imageIcon from '../../assets/imgHome/cod.png';
 
@@ -13,20 +12,16 @@ const Artigo = () => {
   const [imageBlobData, setImageBlobData] = useState<string | null>(null);
   const [imageMimeType, setImageMimeType] = useState<string | null>(null);
   const [articleContent, setArticleContent] = useState('');
-  const [currentUserId, setCurrentUserId] = useState<number | null>(null); // <-- Novo estado para o ID do usuário logado
+  const [currentUserId, setCurrentUserId] = useState<number | null>(null);
 
-  // <-- NOVO: useEffect para carregar o userId do localStorage quando o componente montar
   useEffect(() => {
     const userIdString = localStorage.getItem('userId');
     if (userIdString) {
       setCurrentUserId(parseInt(userIdString, 10));
     } else {
-      // Opcional: Redirecionar para a página de login se não houver userId
-      // ou exibir uma mensagem de erro.
       alert('Você precisa estar logado para publicar um artigo.');
-      // window.location.href = '/login'; // Exemplo de redirecionamento
     }
-  }, []); // O array vazio garante que isso rode apenas uma vez ao montar
+  }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -61,13 +56,11 @@ const Artigo = () => {
   const handleSave = async () => {
     console.log('Tentando salvar artigo...');
 
-    // Validação básica no frontend
     if (!title || !description || !author || !articleContent) {
       alert('Por favor, preencha Título, Descrição, Autor e Conteúdo do artigo.');
       return;
     }
 
-    // <-- NOVO: Validação do userId
     if (currentUserId === null) {
       alert('Não foi possível obter o ID do usuário logado. Por favor, faça login novamente.');
       return;
@@ -80,7 +73,7 @@ const Artigo = () => {
       imageBlob: imageBlobData,
       imageMimeType: imageMimeType,
       content: articleContent,
-      userId: currentUserId, // <-- NOVO: Enviando o userId
+      userId: currentUserId,
     };
 
     try {
@@ -88,8 +81,6 @@ const Artigo = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Opcional: Você pode enviar o userId também em um cabeçalho para maior segurança
-          // 'X-User-Id': currentUserId.toString(),
         },
         body: JSON.stringify(articleData),
       });
@@ -99,7 +90,6 @@ const Artigo = () => {
       if (response.ok) {
         alert(`Artigo salvo com sucesso! ID: ${responseData.articleId}`);
         console.log('Artigo salvo:', responseData);
-        // Limpar o formulário após salvar com sucesso
         setTitle('');
         setDescription('');
         setAuthor('');

@@ -1,32 +1,32 @@
-/* Estilos globais e de corpo para reset e fontes */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5; /* Cor de fundo clara para a página */
+    background-color: #f0f2f5; 
 }
 .my-articles-link {
     text-decoration: none;
-    color: #007bff; /* Ou a cor que você preferir para links de destaque */
+    color: #007bff; 
     font-size: 1em;
-    font-weight: bold; /* Para dar mais destaque */
+    font-weight: bold; 
     transition: color 0.3s ease;
 }
 
 .my-articles-link:hover {
-    color: #0056b3; /* Cor ao passar o mouse */
+    color: #0056b3; 
 }
 
 .home-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
+    min-height: 100vh; 
 }
 
 /* Header */
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* ALINHA OS ITENS VERTICALMENTE NO CENTRO */
+    align-items: center; 
     background-color: #fffefe;
     padding: 15px 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -40,16 +40,14 @@ body {
 
 .nav {
     display: flex;
-    align-items: center; /* ALINHA OS ITENS FILHOS VERTICALMENTE NO CENTRO */
-    /* Removido margin-top para garantir alinhamento */
-    gap: 30px; /* ESPAÇAMENTO UNIFORME ENTRE TODOS OS ITENS DIRETOS DA NAV */
+    align-items: center; 
+    gap: 30px; 
     margin-top: 20%;
 }
 
 .nav a {
     text-decoration: none;
     color: #000000;
-    /* Removido margin-left e margin-top aqui, pois o gap no .nav cuida do espaçamento */
     font-size: 1em;
     transition: color 0.3s ease;
 }
@@ -58,16 +56,13 @@ body {
     color: #007bff;
 }
 
-/* Container para os links de autenticação (Entrar/Registrar) */
 .auth-links {
     display: flex;
-    align-items: center; /* Alinha verticalmente os itens dentro de auth-links */
-    gap: 20px; /* Espaçamento entre "Entrar" e "Registrar" */
-    /* Removido margin-left, pois o gap no .nav cuida do espaçamento */
+    align-items: center; 
+    gap: 20px; 
 }
 
 .auth-links a {
-    /* Removido margin-left: 20px; aqui, pois o gap acima cuida do espaçamento */
     text-decoration: none;
 }
 
@@ -91,22 +86,21 @@ body {
     background-color: #555;
 }
 
-/* Estilos para o e-mail do usuário logado */
+
 .user-email {
     font-size: 1em;
     color: #333;
     font-weight: bold;
-    /* margin-right: 10px; Pode ser ajustado ou removido se o 'gap' já for suficiente */
+    
 }
 
-/* Estilos para o link "Publicar" com a imagem de perfil */
 .profile-link {
     display: flex;
     align-items: center;
-    color: #333; /* Cor do texto "Publicar" */
+    color: #333; 
     font-weight: bold;
     text-decoration: none;
-    /* margin-left: Xpx; pode ser necessário se o gap padrão não for suficiente para separar de outros itens */
+    
 }
 
 .profile-pic {
@@ -117,7 +111,7 @@ body {
     object-fit: cover;
 }
 
-/* Estilos para o botão de Sair/Logout */
+
 .btn-logout {
     background-color: #dc3545;
     color: #fff;
@@ -127,14 +121,14 @@ body {
     cursor: pointer;
     font-size: 0.9em;
     transition: background-color 0.3s ease;
-    /* margin-left: Xpx; pode ser necessário se o gap padrão não for suficiente para separar de outros itens */
+    
 }
 
 .btn-logout:hover {
     background-color: #c82333;
 }
 
-/* Conteúdo principal (sidebar + main-content) */
+
 .content {
     display: flex;
     flex: 1;
@@ -142,7 +136,7 @@ body {
     gap: 30px;
 }
 
-/* Sidebar (New) */
+
 .sidebar {
     flex: 0 0 350px;
     background-color: #333;
@@ -198,7 +192,7 @@ body {
     flex-direction: column;
 }
 
-/* Featured Article */
+
 .featured-article {
     background-color: #fff;
     border-radius: 5px;
@@ -240,7 +234,7 @@ body {
     margin-bottom: 5px;
 }
 
-/* Botão LER MAIS */
+
 .read-more {
     display: flex;
     justify-content: flex-end;
@@ -262,7 +256,6 @@ body {
     background-color: #0056b3;
 }
 
-/* Secondary Articles (os três cards na parte inferior) */
 .secondary-articles-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -313,7 +306,6 @@ body {
     padding-top: 10px;
 }
 
-/* Responsividade (exemplo) */
 @media (max-width: 768px) {
     .header, .content {
         flex-direction: column;

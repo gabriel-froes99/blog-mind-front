@@ -2,20 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './articlesPage.css'; // Importe o CSS para esta página
+import './articlesPage.css';
 
-// Importe as imagens que você usa no seu header
 import profilePicHeader from '../../assets/imgHome/profile.png';
-import defaultArticleImage from '../../assets/imgHome/cod.png'; // Um placeholder caso o artigo não tenha imagem
+import defaultArticleImage from '../../assets/imgHome/cod.png';
 
-// Interface para um artigo (correspondente ao que o backend retorna)
 interface Article {
     id: number;
     title: string;
     description: string;
-    image_blob?: string; // Virá como base64 string (Data URL)
-    image_mime_type?: string; // Pode ser útil se você precisar construir a Data URL, mas image_blob já deve ser uma Data URL
-    date: string; // Virá como string, pode formatar
+    image_blob?: string;
+    image_mime_type?: string;
+    date: string;
     author: string;
     user_id: number;
     content?: string;
@@ -30,7 +28,7 @@ const ArticlesPage: React.FC = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await fetch('http://localhost:3000/articles'); // Sua rota do backend
+                const response = await fetch('http://localhost:3000/articles');
                 if (response.ok) {
                     const data: Article[] = await response.json();
                     setArticles(data);
@@ -47,13 +45,13 @@ const ArticlesPage: React.FC = () => {
         };
 
         fetchArticles();
-    }, []); // Array de dependências vazio para rodar apenas uma vez ao montar o componente
+    }, []);
 
     const handleLogout = () => {
         localStorage.removeItem('userId');
         localStorage.removeItem('userEmail');
-        localStorage.removeItem('userAvatarBlobBase64'); // Remover o avatar também
-        navigate('/'); // Redirecionar para a página de login
+        localStorage.removeItem('userAvatarBlobBase64');
+        navigate('/');
     };
 
     if (loading) {
@@ -70,7 +68,7 @@ const ArticlesPage: React.FC = () => {
                 <div className="articles-logo">M.</div>
                 <nav className="articles-nav">
                     <Link to="/home">Home</Link>
-                    <Link to="/articles">Artigos</Link> {/* Link para esta própria página */}
+                    <Link to="/articles">Artigos</Link>
                     <span className="separator">|</span>
                     <Link to="/artigo" className="profile-link">
                         Publicar

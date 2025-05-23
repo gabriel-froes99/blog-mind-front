@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import './esqueci.css';
 import { Link } from 'react-router-dom';
-
+import Logo from '../../assets/imgHome/logo.png';
 
 const Esqueci = () => {
-  // Estados para armazenar os valores dos inputs
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Função para lidar com o envio do formulário
+  
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); // Previne o recarregamento da página
+    event.preventDefault(); 
 
 
     console.log('Email:', email);
@@ -23,7 +22,7 @@ const Esqueci = () => {
       return;
     }
 
-    // Lógica para enviar email de redefinição ou alterar senha
+    
     alert('');
   };
 
@@ -31,7 +30,7 @@ const Esqueci = () => {
     <div className="container">
       <div className="left">
         <div className="logo-box">
-          <h1 className="logo">M.</h1>
+          <img src={Logo} alt="Logo" className="logo" />
           <p className="slogan">Inovação ao Seu Alcance.</p>
         </div>
       </div>

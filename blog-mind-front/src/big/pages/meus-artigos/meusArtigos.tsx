@@ -1,19 +1,19 @@
-// src/components/MeusArtigos.tsx
+
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './meusArtigos.css'; // O arquivo CSS que criaremos para esta tela
-import profilePic from '../../assets/imgHome/profile.png'; // Imagem de perfil para o header
+import './meusArtigos.css'; 
+import profilePic from '../../assets/imgHome/profile.png'; 
 
-// Interface para definir a estrutura de dados de um artigo
+
 interface Article {
     id: number;
     title: string;
-    description: string; // Ou content, se você tiver um campo de conteúdo completo
-    image_blob?: string; // Opcional, pois pode não ter imagem
-    image_mime_type?: string; // Opcional
+    description: string; 
+    image_blob?: string; 
+    image_mime_type?: string;
     date: string;
     author: string;
-    user_id: number; // Garanta que este campo venha do backend
+    user_id: number; 
 }
 
 const MeusArtigos: React.FC = () => {
@@ -24,7 +24,7 @@ const MeusArtigos: React.FC = () => {
     const [userEmail, setUserEmail] = useState<string | null>(null);
     const [userId, setUserId] = useState<string | null>(null);
 
-    // Efeito para carregar o e-mail e ID do usuário para o header e para a busca
+   
     useEffect(() => {
         const email = localStorage.getItem('userEmail');
         const storedUserId = localStorage.getItem('userId');
@@ -34,16 +34,16 @@ const MeusArtigos: React.FC = () => {
         if (storedUserId) {
             setUserId(storedUserId);
         } else {
-            // Se não houver userId, o usuário não está logado, redireciona
+            
             alert('Você precisa estar logado para ver seus artigos.');
             navigate('/login');
         }
     }, [navigate]);
 
-    // Efeito para buscar os artigos do usuário
+   
     useEffect(() => {
         const fetchMyArticles = async () => {
-            if (!userId) return; // Não tenta buscar se o userId ainda não foi carregado
+            if (!userId) return; 
 
             try {
                 setLoading(true);
@@ -62,11 +62,11 @@ const MeusArtigos: React.FC = () => {
         };
 
         fetchMyArticles();
-    }, [userId]); // Re-busca se o userId mudar
+    }, [userId]); 
 
     const handleLogout = () => {
         localStorage.removeItem('userEmail');
-        localStorage.removeItem('userId'); // Remove o userId também
+        localStorage.removeItem('userId'); 
         setUserEmail(null);
         setUserId(null);
         alert('Você foi desconectado.');
@@ -83,7 +83,7 @@ const MeusArtigos: React.FC = () => {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-user-id': userId || '', // Envia o userId no header para verificação no backend
+                    'x-user-id': userId || '', 
                 },
             });
 
@@ -93,7 +93,7 @@ const MeusArtigos: React.FC = () => {
             }
 
             alert('Artigo excluído com sucesso!');
-            // Atualiza a lista de artigos removendo o artigo excluído
+          
             setArticles(prevArticles => prevArticles.filter(article => article.id !== articleId));
         } catch (err: any) {
             console.error('Erro ao excluir artigo:', err);
@@ -111,12 +111,12 @@ const MeusArtigos: React.FC = () => {
 
     return (
         <div className="meus-artigos-container">
-            {/* Header (copiado da HomeScreen/ArticleDetailScreen para manter a consistência) */}
+            
             <header className="header">
                 <div className="logo">M.</div>
                 <nav className="nav">
                     <Link to="/">Home</Link>
-                    <Link to="/articles">Artigos</Link> {/* Link para a tela de todos os artigos, se tiver */}
+                    <Link to="/articles">Artigos</Link> 
 
                     {userEmail ? (
                         <>
@@ -125,7 +125,7 @@ const MeusArtigos: React.FC = () => {
                                 Publicar
                                 <img src={profilePic} alt="Profile" className="profile-pic" />
                             </Link>
-                            {/* Link para Meus Artigos */}
+                            
                             <Link to="/meus-artigos" className="my-articles-link">Meus Artigos</Link>
                             <button className="btn-logout" onClick={handleLogout}>Sair</button>
                         </>
@@ -138,7 +138,7 @@ const MeusArtigos: React.FC = () => {
                 </nav>
             </header>
 
-            {/* Conteúdo principal da tela "Meus Artigos" */}
+           
             <main className="meus-artigos-main-content">
                 <h1 className="meus-artigos-title">Meus Artigos</h1>
 
@@ -164,7 +164,7 @@ const MeusArtigos: React.FC = () => {
                                     </div>
                                     <div className="article-card-actions">
                                         <Link to={`/articles/${article.id}`} className="btn-view">Ver</Link>
-                                        <Link to={`/editar/${article.id}`} className="btn-edit">Editar</Link> {/* Rota para edição */}
+                                        <Link to={`/editar/${article.id}`} className="btn-edit">Editar</Link> 
                                         <button onClick={() => handleDeleteArticle(article.id)} className="btn-delete">Excluir</button>
                                     </div>
                                 </div>

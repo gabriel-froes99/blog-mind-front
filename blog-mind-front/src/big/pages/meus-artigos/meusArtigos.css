@@ -1,8 +1,4 @@
-/* src/components/MeusArtigos.css */
 
-/* Importa estilos comuns de header para manter consistência */
-/* Se você tiver um arquivo global para o header, use-o aqui */
-/* Duplicando estilos essenciais do header para garantir que funcione */
 .header {
     display: flex;
     justify-content: space-between;
@@ -102,10 +98,10 @@
     background-color: #555;
 }
 
-/* Novo estilo para o link "Meus Artigos" no header */
+
 .my-articles-link {
     text-decoration: none;
-    color: #007bff; /* Azul para destaque */
+    color: #007bff; 
     font-size: 1em;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -116,7 +112,7 @@
 }
 
 
-/* Estilos Específicos da Tela "Meus Artigos" */
+
 .meus-artigos-container {
     display: flex;
     flex-direction: column;
@@ -125,12 +121,12 @@
 }
 
 .meus-artigos-main-content {
-    flex-grow: 1; /* Permite que o conteúdo ocupe o espaço restante */
+    flex-grow: 1; 
     padding: 30px 50px;
-    max-width: 1200px; /* Largura máxima do conteúdo */
-    margin: 0 auto; /* Centraliza o conteúdo */
-    width: 100%; /* Ocupa a largura total dentro do max-width */
-    box-sizing: border-box; /* Inclui padding na largura total */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .meus-artigos-title {
@@ -151,8 +147,8 @@
 
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colunas flexíveis */
-    gap: 30px; /* Espaço entre os cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
 }
 
 .article-card {
@@ -180,7 +176,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Permite que o conteúdo cresça e empurre o meta e ações para baixo */
+    flex-grow: 1; 
 }
 
 .article-card-title {
@@ -196,7 +192,7 @@
     color: #666;
     line-height: 1.5;
     margin-bottom: 15px;
-    flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
+    flex-grow: 1;
 }
 
 .article-card-meta {
@@ -209,9 +205,9 @@
 
 .article-card-actions {
     display: flex;
-    gap: 10px; /* Espaçamento entre os botões de ação */
-    margin-top: 10px; /* Espaço entre meta e botões */
-    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 10px; 
+    margin-top: 10px; 
+    justify-content: flex-end; 
 }
 
 .btn-view, .btn-edit, .btn-delete {
@@ -220,8 +216,8 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9em;
-    text-decoration: none; /* Para links */
-    display: inline-block; /* Para links agirem como botões */
+    text-decoration: none; 
+    display: inline-block; 
     text-align: center;
     transition: background-color 0.2s ease;
 }
@@ -235,7 +231,7 @@
 }
 
 .btn-edit {
-    background-color: #ffc107; /* Amarelo para editar */
+    background-color: #ffc107; 
     color: #333;
 }
 .btn-edit:hover {
@@ -243,21 +239,21 @@
 }
 
 .btn-delete {
-    background-color: #dc3545; /* Vermelho para excluir */
+    background-color: #dc3545; 
     color: #fff;
 }
 .btn-delete:hover {
     background-color: #c82333;
 }
 
-/* Responsividade básica */
+
 @media (max-width: 768px) {
     .meus-artigos-main-content {
         padding: 20px;
     }
 
     .articles-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        grid-template-columns: 1fr; 
     }
 
     .header, .nav {

@@ -2,27 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './editar.css'; // Importe o CSS específico para a tela de edição
+import './editar.css'; 
 
 // Importe os ícones/imagens necessários.
-import profilePic from '../../assets/imgHome/profile.png'; // Ajuste o caminho conforme o seu projeto
-import imageIcon from '../../assets/imgHome/placeholder.png'; // Crie uma imagem de placeholder se não tiver, ou use a mesma do artigo.tsx
+import profilePic from '../../assets/imgHome/profile.png'; 
+import imageIcon from '../../assets/imgHome/placeholder.png';
 
-// Interface para definir a estrutura de dados de um artigo
 interface Article {
     id: number;
     title: string;
     description: string;
-    content: string; // Conteúdo principal do artigo
+    content: string; 
     author: string;
     date: string;
-    image_blob?: string; // Base64 da imagem, opcional
-    image_mime_type?: string; // Tipo MIME da imagem (ex: 'image/jpeg'), opcional
+    image_blob?: string; 
+    image_mime_type?: string; 
     user_id: number;
 }
 
 const EditarArtigo: React.FC = () => {
-    const { id } = useParams<{ id: string }>(); // Pega o ID do artigo da URL
+    const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
 
     const [title, setTitle] = useState('');
@@ -37,7 +36,7 @@ const EditarArtigo: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Efeito para carregar o userId do localStorage e verificar login
+    
     useEffect(() => {
         const userIdString = localStorage.getItem('userId');
         if (userIdString) {
@@ -48,7 +47,7 @@ const EditarArtigo: React.FC = () => {
         }
     }, [navigate]);
 
-    // Efeito para carregar os dados do artigo a ser editado
+   
     useEffect(() => {
         const fetchArticle = async () => {
             if (!id) {
@@ -63,24 +62,24 @@ const EditarArtigo: React.FC = () => {
                 }
                 const data: Article = await response.json();
 
-                // *** Verificação de permissão: o usuário logado é o autor do artigo? ***
+               
                 const loggedInUserId = parseInt(localStorage.getItem('userId') || '0', 10);
                 if (data.user_id !== loggedInUserId) {
                     alert('Você não tem permissão para editar este artigo.');
-                    navigate('/meus-artigos'); // Redireciona para a lista de artigos do usuário
+                    navigate('/meus-artigos'); 
                     return;
                 }
 
-                // Preencher os estados com os dados do artigo
+                
                 setTitle(data.title);
                 setDescription(data.description);
                 setAuthor(data.author);
                 setArticleContent(data.content);
                 if (data.image_blob && data.image_mime_type) {
-                    // Prepara a string Base64 para exibição
+                    
                     setImageBlobData(`data:${data.image_mime_type};base64,${data.image_blob}`);
                     setImageMimeType(data.image_mime_type);
-                    // Um nome de arquivo genérico ou tentar extrair um nome do backend se disponível
+                    
                     setSelectedFileName('imagem_atual.png'); 
                 } else {
                     setSelectedFileName('');
@@ -98,7 +97,7 @@ const EditarArtigo: React.FC = () => {
         if (id) {
             fetchArticle();
         }
-    }, [id, navigate]); // Dependências: id do artigo e navigate
+    }, [id, navigate]); 
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files[0]) {
@@ -121,7 +120,7 @@ const EditarArtigo: React.FC = () => {
     const handleCancel = () => {
         console.log('Edição Cancelada!');
         alert('Edição Cancelada!');
-        navigate('/meus-artigos'); // Volta para a lista de artigos do usuário
+        navigate('/meus-artigos'); 
     };
 
     const handleSave = async () => {
@@ -149,13 +148,13 @@ const EditarArtigo: React.FC = () => {
             imageBlob: imageBlobData,
             imageMimeType: imageMimeType,
             content: articleContent,
-            userId: currentUserId, // Envia o userId para validação no backend
+            userId: currentUserId, 
         };
 
         try {
-            // Requisição PUT para o backend
+            
             const response = await fetch(`http://localhost:3000/articles/${id}`, {
-                method: 'PUT', // <-- MÉTODO PUT
+                method: 'PUT', 
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -167,7 +166,7 @@ const EditarArtigo: React.FC = () => {
             if (response.ok) {
                 alert(`Artigo "${title}" atualizado com sucesso!`);
                 console.log('Artigo atualizado:', responseData);
-                navigate('/meus-artigos'); // Redireciona para a lista de artigos após o sucesso
+                navigate('/meus-artigos'); 
             } else {
                 alert(`Erro ao atualizar artigo: ${responseData.message || 'Erro desconhecido'}`);
                 console.error('Erro ao atualizar artigo:', responseData);
@@ -188,14 +187,14 @@ const EditarArtigo: React.FC = () => {
 
     return (
         <div className="editar-artigo-container">
-            {/* Header - Adapte conforme o seu componente de Header real */}
+           
             <header className="editar-artigo-header">
                 <div className="editar-artigo-logo">M.</div>
                 <nav className="editar-artigo-nav">
                     <a href="/">Home</a>
                     <a href="/articles">Artigos</a>
                     <span className="separator">|</span>
-                    {/* Publicar link */}
+                    
                     <a href="/artigo" className="profile-link">
                         Publicar
                         <img src={profilePic} alt="Profile" className="profile-pic" />
@@ -205,10 +204,10 @@ const EditarArtigo: React.FC = () => {
 
             <div className="editar-artigo-content-wrapper">
                 <div className="editar-artigo-form-header">
-                    <h2>Editar Artigo</h2> {/* Título para edição */}
+                    <h2>Editar Artigo</h2> 
                     <div className="form-actions">
                         <button className="btn-cancel" onClick={handleCancel}>Cancelar</button>
-                        <button className="btn-save" onClick={handleSave}>Salvar</button> {/* Texto do botão */}
+                        <button className="btn-save" onClick={handleSave}>Salvar</button> 
                     </div>
                 </div>
 
@@ -225,7 +224,7 @@ const EditarArtigo: React.FC = () => {
                             />
                         </div>
 
-                        {/* Campo para Descrição (inspirado na imagem) */}
+                        
                         <div className="form-group">
                             <label htmlFor="description">Descrição</label>
                             <input
@@ -263,7 +262,7 @@ const EditarArtigo: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Campo para Autor (inspirado na imagem) */}
+                       
                         <div className="form-group">
                             <label htmlFor="author">Autor</label>
                             <input
