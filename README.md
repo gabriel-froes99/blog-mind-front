@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 usuários leiam, publiquem e gerenciem artigos.
+=======
+# Blog Mind (Frontend)
+
+Bem-vindo ao frontend do Blog Mind! Esta é uma aplicação web desenvolvida em React e TypeScript, projetada para ser a interface de usuário de uma plataforma de blog, permitindo que os usuários leiam, publiquem e gerenciem artigos.
+>>>>>>> 868adc8703260c3101cbd7e331ceeb9954a6ed66
 
 ## Funcionalidades Principais
 
@@ -12,7 +18,11 @@ usuários leiam, publiquem e gerenciem artigos.
     *   Visualização de detalhes de um artigo específico.
     *   Listagem de artigos criados pelo usuário logado ("Meus Artigos").
     *   Edição de artigos existentes (para o autor do artigo).
+<<<<<<< HEAD
     *   Interface para publicação de novos artigos 
+=======
+  
+>>>>>>> 868adc8703260c3101cbd7e331ceeb9954a6ed66
 *   **Navegação:**
     *   Página inicial (Home) com destaques e artigos recentes.
     *   Página de listagem de todos os artigos.
@@ -26,6 +36,7 @@ usuários leiam, publiquem e gerenciem artigos.
 *   **CSS:** Estilização customizada para os componentes (arquivos `.css` individuais).
 *   **Fetch API:** Para comunicação com o backend.
 *   **LocalStorage:** Para persistência básica de sessão do usuário (email, ID do usuário).
+<<<<<<< HEAD
 
 ## Pré-requisitos
 
@@ -44,3 +55,5 @@ Siga estas instruções para obter uma cópia local do projeto e executá-la.
 ```bash
 git clone https://github.com/gabriel/Documents/GitHub/blog-mind-front.git
 cd blog-mind-front
+=======
+>>>>>>> 868adc8703260c3101cbd7e331ceeb9954a6ed66
