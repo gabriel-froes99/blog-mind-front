@@ -12,7 +12,7 @@ function Login() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch('http://localhost:3000/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,6 +29,8 @@ function Login() {
         localStorage.setItem('userEmail', data.email);
     
         localStorage.setItem('userId', data.userId); 
+
+        localStorage.setItem('token', data.token);
        
 
         navigate('/home'); 

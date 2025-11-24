@@ -12,13 +12,18 @@ const Registrar = () => {
   const handleSubmit = async (event: React.FormEvent) => {
       event.preventDefault();
       try {
-        const response = await fetch('http://localhost:3000/cadastro', {
+        const response = await fetch('http://localhost:3000/api/auth/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ email, password,confirmPassword }),
         });
+        
+        if(password !== confirmPassword){
+          alert('As senhas não coincidem. Por favor, tente novamente.');
+          return;
+        }
   
         if (response.ok) {
           const data = await response.json();
