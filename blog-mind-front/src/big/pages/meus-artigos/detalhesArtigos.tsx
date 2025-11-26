@@ -98,7 +98,7 @@ const ArticleDetailScreen: React.FC = () => {
                 <div className="logo">M.</div>
                 <nav className="nav">
                     <Link to="/">Home</Link>
-                    <Link to="/articles">Artigos</Link> 
+                    <Link to="/artigos">Artigos</Link> 
 
                     {userEmail ? (
                         <>

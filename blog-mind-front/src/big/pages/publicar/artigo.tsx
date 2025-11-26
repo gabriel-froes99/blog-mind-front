@@ -77,7 +77,7 @@ const Artigo = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/articles', {
+      const response = await fetch('http://localhost:3000/api/auth/articles', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const Artigo = () => {
         <div className="artigo-logo">M.</div>
         <nav className="artigo-nav">
           <a href="/">Home</a>
-          <a href="/articles">Artigos</a>
+          <a href="/artigos">Artigos</a>
           <span className="separator">|</span>
           <a href="/publish" className="profile-link">
             Publicar

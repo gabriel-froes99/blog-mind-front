@@ -115,8 +115,8 @@ const MeusArtigos: React.FC = () => {
             <header className="header">
                 <div className="logo">M.</div>
                 <nav className="nav">
-                    <Link to="/">Home</Link>
-                    <Link to="/articles">Artigos</Link> 
+                    <Link to="/home">Home</Link>
+                    <Link to="/artigos">Artigos</Link> 
 
                     {userEmail ? (
                         <>

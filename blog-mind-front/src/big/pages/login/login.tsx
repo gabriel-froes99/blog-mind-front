@@ -26,7 +26,7 @@ function Login() {
         alert('Login realizado com sucesso!');
 
    
-        localStorage.setItem('userEmail', data.email);
+        localStorage.setItem('userEmail', data.user.email);
     
         localStorage.setItem('userId', data.user.id); 
 

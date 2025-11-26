@@ -21,7 +21,7 @@ const HomeScreen = () => {
   }, []); 
 
   const handleLogout = () => {
-    localStorage.removeItem('userEmail'); 
+    localStorage.removeItem('email'); 
     localStorage.removeItem('userId'); 
     setUserEmail(null); 
     alert('Você foi desconectado.');
