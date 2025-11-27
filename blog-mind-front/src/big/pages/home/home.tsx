@@ -1,68 +1,21 @@
-
-import { useState, useEffect } from 'react'; 
 import './home.css';
 import CellImage from '../../assets/imgHome/cell.png';
 import CodImage from '../../assets/imgHome/cod.png';
 import TsImage from '../../assets/imgHome/ts.png';
-import profilePic from '../../assets/imgHome/default-avatar.png'; 
 import { Link, useNavigate } from 'react-router-dom'; 
-import Logo from '../../assets/imgHome/logo.png';
-
+import NavBar from '../../components/navBar/navBar';
 
 const HomeScreen = () => {
-  const [userEmail, setUserEmail] = useState<string | null>(null);
-  const navigate = useNavigate(); 
-
-  useEffect(() => {
-    const email = localStorage.getItem('userEmail');
-    if (email) {
-      setUserEmail(email);
-    }
-  }, []); 
-
-  const handleLogout = () => {
-    localStorage.removeItem('email'); 
-    localStorage.removeItem('userId'); 
-    setUserEmail(null); 
-    alert('Você foi desconectado.');
-    navigate('/'); 
-  };
 
   return (
+    <>
+    
+    
     <div className="home-container">
       
-      <header className="header"> 
-        <img src={Logo} alt="Logo" className="logo" />
-        <nav className="nav"> 
-          <Link to="/home">Home</Link>
-          <Link to="/artigos">Artigos</Link> 
-
-          {userEmail ? (
-            <>
-           
-              <span className="user-email">{userEmail}</span>
-
-              <Link to="/artigo" className="profile-link">
-                Publicar
-                <img src={profilePic} alt="Profile" className="profile-pic" />
-              </Link>
-              
-            
-              <Link to="/meus-artigos" className="my-articles-link">Meus Artigos</Link>
-
-           
-              <button className="btn-logout" onClick={handleLogout}>Sair</button>
-            </>
-          ) : (
-         
-            <div className="auth-links"> 
-              <Link to="/">Entrar</Link> 
-              <Link to="/cadastro">Registrar</Link> 
-            </div>
-          )}
-        </nav>
-      </header>
-
+        <NavBar />
+     
+      
       <div className="content">
   
         <aside className="sidebar">
@@ -100,7 +53,6 @@ const HomeScreen = () => {
 
        
           <div className="read-more">
-          
             <button>LER MAIS</button> 
           </div>
 
@@ -139,6 +91,7 @@ const HomeScreen = () => {
         </main>
       </div>
     </div>
+    </>
   );
 };
 

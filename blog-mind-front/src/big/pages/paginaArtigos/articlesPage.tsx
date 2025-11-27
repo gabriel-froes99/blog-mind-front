@@ -6,6 +6,7 @@ import './articlesPage.css';
 
 import profilePicHeader from '../../assets/imgHome/profile.png';
 import defaultArticleImage from '../../assets/imgHome/cod.png';
+import NavBar from '../../components/navBar/navBar';
 
 interface Article {
     id: number;
@@ -64,19 +65,8 @@ const ArticlesPage: React.FC = () => {
 
     return (
         <div className="articles-container">
-            <header className="articles-header">
-                <div className="articles-logo">M.</div>
-                <nav className="articles-nav">
-                    <Link to="/home">Home</Link>
-                    <Link to="/articles">Artigos</Link>
-                    <span className="separator">|</span>
-                    <Link to="/artigo" className="profile-link">
-                        Publicar
-                        <img src={profilePicHeader} alt="Profile" className="profile-pic" />
-                    </Link>
-                    <button className="btn-logout" onClick={handleLogout}>Sair</button>
-                </nav>
-            </header>
+            
+            <NavBar />
 
             <main className="articles-main-content">
                 <h1 className="articles-page-title">Todos os Artigos</h1>
@@ -98,7 +88,7 @@ const ArticlesPage: React.FC = () => {
                                         <span>Por: {article.author}</span>
                                         <span>Em: {new Date(article.date).toLocaleDateString()}</span>
                                     </div>
-                                    <Link to={`/artigo${article.id}`} className="read-more-button">Leia Mais</Link>
+                                    <Link to={`/articles/${article.id}`} className="read-more-button">Leia Mais</Link>
                                 </div>
                             </div>
                         ))

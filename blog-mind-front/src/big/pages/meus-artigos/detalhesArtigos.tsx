@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom'; 
 import './ArticleDetail.css'; 
 import profilePic from '../../assets/imgHome/profile.png'; 
+import NavBar from '../../components/navBar/navBar';
 
 
 interface Article {
@@ -63,14 +64,7 @@ const ArticleDetailScreen: React.FC = () => {
         fetchArticle();
     }, [id]); 
 
-    const handleLogout = () => {
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('userId'); 
-        setUserEmail(null);
-        setUserId(null);
-        alert('Você foi desconectado.');
-        navigate('/login'); 
-    };
+ 
 
     if (loading) {
         return <div className="article-detail-container loading">Carregando artigo...</div>;
@@ -93,32 +87,10 @@ const ArticleDetailScreen: React.FC = () => {
 
     return (
         <div className="article-detail-container">
-             
-            <header className="header">
-                <div className="logo">M.</div>
-                <nav className="nav">
-                    <Link to="/">Home</Link>
-                    <Link to="/artigos">Artigos</Link> 
-
-                    {userEmail ? (
-                        <>
-                            <span className="user-email">{userEmail}</span>
-                            <Link to="/artigo" className="profile-link">
-                                Publicar
-                                <img src={profilePic} alt="Profile" className="profile-pic" />
-                            </Link>
-                            {/* Link para Meus Artigos */}
-                            <Link to="/meus-artigos" className="my-articles-link">Meus Artigos</Link>
-                            <button className="btn-logout" onClick={handleLogout}>Sair</button>
-                        </>
-                    ) : (
-                        <div className="auth-links">
-                            <Link to="/">Entrar</Link>
-                            <Link to="/cadastro">Registrar</Link>
-                        </div>
-                    )}
-                </nav>
-            </header>
+            
+            <div className='nav-bar'>
+                <NavBar />
+            </div>
 
           
             <main className="article-content-wrapper">

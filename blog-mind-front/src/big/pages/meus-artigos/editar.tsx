@@ -7,6 +7,7 @@ import './editar.css';
 // Importe os ícones/imagens necessários.
 import profilePic from '../../assets/imgHome/profile.png'; 
 import imageIcon from '../../assets/imgHome/placeholder.png';
+import NavBar from '../../components/navBar/navBar';
 
 interface Article {
     id: number;
@@ -188,19 +189,7 @@ const EditarArtigo: React.FC = () => {
     return (
         <div className="editar-artigo-container">
            
-            <header className="editar-artigo-header">
-                <div className="editar-artigo-logo">M.</div>
-                <nav className="editar-artigo-nav">
-                    <a href="/">Home</a>
-                    <a href="/articles">Artigos</a>
-                    <span className="separator">|</span>
-                    
-                    <a href="/artigo" className="profile-link">
-                        Publicar
-                        <img src={profilePic} alt="Profile" className="profile-pic" />
-                    </a>
-                </nav>
-            </header>
+           <NavBar />
 
             <div className="editar-artigo-content-wrapper">
                 <div className="editar-artigo-form-header">

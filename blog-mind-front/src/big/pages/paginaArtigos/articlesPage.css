@@ -1,5 +1,8 @@
 /* frontend/src/pages/Articles/articlesPage.css */
-
+*{
+    width: 100%;
+    
+}
 .articles-container {
     display: flex;
     flex-direction: column;
@@ -7,7 +10,7 @@
     background-color: #f0f2f5; 
     color: #333;
     font-family: 'Arial', sans-serif;
-    margin-top: 60%;
+    
 }
 
 .articles-header {
@@ -24,6 +27,13 @@
     font-size: 2em;
     font-weight: bold;
     color: #007bff;
+}
+.articles-nav{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
 }
 
 .articles-nav a {
@@ -74,13 +84,15 @@
 }
 
 .articles-main-content {
-    flex-grow: 1;
-    padding: 30px 50px;
-    max-width: 1200px; 
-    margin: 20px auto; 
+    margin-top: 100px;      
+    padding: 40px;
+    width: 95%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .articles-page-title {
@@ -93,9 +105,8 @@
 
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 30px; 
-    justify-content: center; 
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 35px;
 }
 
 .article-card {
@@ -137,6 +148,7 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2; 
+    line-clamp: inherit;
     -webkit-box-orient: vertical;
 }
 
@@ -150,6 +162,7 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3; 
+    line-clamp: inherit;
     -webkit-box-orient: vertical;
 }
 

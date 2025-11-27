@@ -3,6 +3,7 @@ import './Artigo.css';
 
 import profilePic from '../../assets/imgHome/cod.png';
 import imageIcon from '../../assets/imgHome/cod.png';
+import NavBar from '../../components/navBar/navBar';
 
 const Artigo = () => {
   const [title, setTitle] = useState('');
@@ -109,18 +110,9 @@ const Artigo = () => {
 
   return (
     <div className="artigo-container">
-      <header className="artigo-header">
-        <div className="artigo-logo">M.</div>
-        <nav className="artigo-nav">
-          <a href="/">Home</a>
-          <a href="/artigos">Artigos</a>
-          <span className="separator">|</span>
-          <a href="/publish" className="profile-link">
-            Publicar
-            <img src={profilePic} alt="Profile" className="profile-pic" />
-          </a>
-        </nav>
-      </header>
+        <div className='Nav'>
+          <NavBar />
+        </div>
 
       <div className="artigo-content-wrapper">
         <div className="artigo-form-header">

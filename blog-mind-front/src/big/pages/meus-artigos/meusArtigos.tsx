@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './meusArtigos.css'; 
 import profilePic from '../../assets/imgHome/profile.png'; 
+import NavBar from '../../components/navBar/navBar';
 
 
 interface Article {
@@ -112,31 +113,7 @@ const MeusArtigos: React.FC = () => {
     return (
         <div className="meus-artigos-container">
             
-            <header className="header">
-                <div className="logo">M.</div>
-                <nav className="nav">
-                    <Link to="/home">Home</Link>
-                    <Link to="/artigos">Artigos</Link> 
-
-                    {userEmail ? (
-                        <>
-                            <span className="user-email">{userEmail}</span>
-                            <Link to="/artigo" className="profile-link">
-                                Publicar
-                                <img src={profilePic} alt="Profile" className="profile-pic" />
-                            </Link>
-                            
-                            <Link to="/meus-artigos" className="my-articles-link">Meus Artigos</Link>
-                            <button className="btn-logout" onClick={handleLogout}>Sair</button>
-                        </>
-                    ) : (
-                        <div className="auth-links">
-                            <Link to="/">Entrar</Link>
-                            <Link to="/cadastro">Registrar</Link>
-                        </div>
-                    )}
-                </nav>
-            </header>
+            <NavBar />
 
            
             <main className="meus-artigos-main-content">
