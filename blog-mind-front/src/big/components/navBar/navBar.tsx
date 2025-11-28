@@ -9,11 +9,19 @@ import profilePicHeader from '../../assets/imgHome/profile.png';
 export default function NavBar() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const navigate = useNavigate(); 
+  const [currentUserId, setCurrentUserId] = useState<number | null>(null);
 
   useEffect(() => {
     const email = localStorage.getItem('userEmail');
     if (email) {
       setUserEmail(email);
+    }
+     const userIdString = localStorage.getItem('userId');
+    if (userIdString) {
+      setCurrentUserId(parseInt(userIdString, 10));
+    } else {
+      alert('Você precisa estar logado para editar seu perfil.');
+      navigate('/login');
     }
   }, []); 
 
@@ -27,13 +35,14 @@ export default function NavBar() {
 
   return (
 
+    
  <header className="articles-header">
                 <div className="articles-logo">M.</div>
                 <nav className="articles-nav">
                     <Link to="/home">Home</Link>
                     <Link to="/artigos">Artigos</Link>
                     <Link to="/meus-artigos">Meus Artigos</Link>
-                    
+                    <Link to={`editar-perfil/${currentUserId}`}>Perfil</Link>
                     <Link to="/artigo" className="profile-link">
                         Publicar
                         <img src={profilePicHeader} alt="Profile" className="profile-pic" />
