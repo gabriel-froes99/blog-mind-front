@@ -37,7 +37,7 @@ const MeusArtigos: React.FC = () => {
         } else {
             
             alert('Você precisa estar logado para ver seus artigos.');
-            navigate('/login');
+            navigate('/');
         }
     }, [navigate]);
 
