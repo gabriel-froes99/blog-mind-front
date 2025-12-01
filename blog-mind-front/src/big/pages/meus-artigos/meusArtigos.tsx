@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './meusArtigos.css'; 
-import profilePic from '../../assets/imgHome/profile.png'; 
+ 
 import NavBar from '../../components/navBar/navBar';
 
 
@@ -44,16 +44,28 @@ const MeusArtigos: React.FC = () => {
    
     useEffect(() => {
         const fetchMyArticles = async () => {
+            const userId = localStorage.getItem('userId');
             if (!userId) return; 
 
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:3000/articles/user/${userId}`);
+                const response = await fetch(`http://localhost:3000/api/auth/UserArticles/${userId}`);
                 if (!response.ok) {
                     throw new Error(`Erro HTTP! Status: ${response.status}`);
                 }
-                const data = await response.json();
-                setArticles(data);
+                const data: any = await response.json();
+                // Extract articles array from the API response
+                let parsedArticles: Article[] = [];
+                if (Array.isArray(data)) {
+                    parsedArticles = data;
+                } else if (data?.data && Array.isArray(data.data)) {
+                    parsedArticles = data.data;
+                } else if (data?.articles && Array.isArray(data.articles)) {
+                    parsedArticles = data.articles;
+                } else {
+                    console.warn('Unexpected response shape for UserArticles:', data);
+                }
+                setArticles(parsedArticles);
             } catch (err: any) {
                 console.error("Erro ao buscar meus artigos:", err);
                 setError("Não foi possível carregar seus artigos. Tente novamente mais tarde.");
@@ -64,15 +76,6 @@ const MeusArtigos: React.FC = () => {
 
         fetchMyArticles();
     }, [userId]); 
-
-    const handleLogout = () => {
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('userId'); 
-        setUserEmail(null);
-        setUserId(null);
-        alert('Você foi desconectado.');
-        navigate('/');
-    };
 
     const handleDeleteArticle = async (articleId: number) => {
         if (!window.confirm('Tem certeza que deseja excluir este artigo?')) {

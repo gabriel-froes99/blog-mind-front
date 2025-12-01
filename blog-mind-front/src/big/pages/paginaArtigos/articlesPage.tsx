@@ -1,10 +1,8 @@
 // frontend/src/pages/Articles/ArticlesPage.tsx
 
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './articlesPage.css';
-
-import profilePicHeader from '../../assets/imgHome/profile.png';
 import defaultArticleImage from '../../assets/imgHome/cod.png';
 import NavBar from '../../components/navBar/navBar';
 
@@ -21,7 +19,6 @@ interface Article {
 }
 
 const ArticlesPage: React.FC = () => {
-    const navigate = useNavigate();
     const [articles, setArticles] = useState<Article[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -48,12 +45,6 @@ const ArticlesPage: React.FC = () => {
         fetchArticles();
     }, []);
 
-    const handleLogout = () => {
-        localStorage.removeItem('userId');
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('userAvatarBlobBase64');
-        navigate('/');
-    };
 
     if (loading) {
         return <div className="articles-container loading">Carregando artigos...</div>;

@@ -15,11 +15,11 @@ interface Article {
     date: string;
     author: string;
     user_id: number; 
+    content: string;
 }
 
 const ArticleDetailScreen: React.FC = () => {
-    const { id } = useParams<{ id: string }>(); 
-    const navigate = useNavigate(); 
+    const { id } = useParams<{ id: string }>();  
     const [article, setArticle] = useState<Article | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -113,6 +113,7 @@ const ArticleDetailScreen: React.FC = () => {
 
                 <div className="article-detail-body">
                  
+                <p className="article-detail-description">{article.content}</p>
                     <p>{article.description}</p>
                 </div>
 

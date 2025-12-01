@@ -12,7 +12,6 @@ import EditarArtigo from './big/pages/meus-artigos/editar';
 import ArticlesPage from './big/pages/paginaArtigos/articlesPage';
 import Artigo from './big/pages/publicar/artigo';
 import EditProfile from './big/pages/profile/editProfile';
-import ProfilePage from './big/pages/profile/profile';
 
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
         <Route path='/editar/:id' element={<EditarArtigo />} /> 
         <Route path='artigo' element={<Artigo />} />
         <Route path='/editar-perfil/:id' element={<EditProfile />} />
-        <Route path='/perfil' element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );
