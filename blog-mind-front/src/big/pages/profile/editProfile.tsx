@@ -7,9 +7,6 @@ import profileIcon from '../../assets/imgHome/profile.png';
 interface UserProfile {
   id: number;
   email: string;
-  name?: string;
-  profilePicture?: string;
-  createdAt?: string;
 }
 
 const EditProfile: React.FC = () => {
@@ -53,12 +50,8 @@ const EditProfile: React.FC = () => {
 
           setEmail(data.email);
           // Use `name` from backend when available
-          setName(data.name || '');
-
-        if (data.profilePicture) {
-          setProfileBlobData(data.profilePicture);
-          setSelectedFileName('Foto de perfil atual');
-        }
+          
+          
       } catch (err: any) {
         console.error('Erro ao carregar perfil do usuário:', err);
         setError('Não foi possível carregar seu perfil. Tente novamente mais tarde.');
@@ -110,11 +103,10 @@ const EditProfile: React.FC = () => {
       email: email,
       name: name,
       profilePicture: profileBlobData,
-      profileMimeType: profileMimeType,
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/profile/${currentUserId}`, {
+      const response = await fetch(`http://localhost:3000/api/auth/editProfile/${currentUserId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

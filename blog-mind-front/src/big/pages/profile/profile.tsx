@@ -5,11 +5,12 @@ import NavBar from '../../components/navBar/navBar';
 import profileIcon from '../../assets/imgHome/profile.png';
 
 interface UserProfile {
-	id: number;
+	userId: number;
 	email: string;
 	name?: string;
 	profilePicture?: string;
-	createdAt?: string;
+	
+	
 }
 
 const ProfilePage: React.FC = () => {
@@ -23,6 +24,7 @@ const ProfilePage: React.FC = () => {
 		if (!userIdString) {
 			navigate('/');
 			return;
+			
 		}
 
 		const fetchProfile = async () => {
@@ -32,6 +34,8 @@ const ProfilePage: React.FC = () => {
 				if (!res.ok) throw new Error(`HTTP ${res.status}`);
 				const data: UserProfile = await res.json();
 				setUser(data);
+				console.log(user);	
+				console.log('Dados do perfil carregados:', data);
 			} catch (err: any) {
 				console.error('Erro ao buscar perfil:', err);
 				setError('Não foi possível carregar os dados do perfil.');
@@ -59,9 +63,9 @@ const ProfilePage: React.FC = () => {
 						)}
 					</div>
 					<div className="profile-info">
-						<h2>{user?.name || 'Usuário'}</h2>
+						{/* <h2>{user?.name || 'Usuário'}</h2> */}
 						<p className="email">{user?.email}</p>
-						{user?.createdAt && <p className="created">Membro desde: {new Date(user.createdAt).toLocaleDateString()}</p>}
+						
 					</div>
 				</div>
 

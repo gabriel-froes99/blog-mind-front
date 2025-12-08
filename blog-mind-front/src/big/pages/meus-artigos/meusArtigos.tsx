@@ -10,7 +10,7 @@ interface Article {
     id: number;
     title: string;
     description: string; 
-    image_blob?: string; 
+    image_blob?: Blob; 
     image_mime_type?: string;
     date: string;
     author: string;

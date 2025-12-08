@@ -42,7 +42,7 @@ export default function NavBar() {
                     <Link to="/home">Home</Link>
                     <Link to="/artigos">Artigos</Link>
                     <Link to="/meus-artigos">Meus Artigos</Link>
-                    <Link to={`editar-perfil/${currentUserId}`}>Perfil</Link>
+                    <Link to={`/perfil/${currentUserId}`}>Perfil</Link>
                     <Link to="/artigo" className="profile-link">
                         Publicar
                         <img src={profilePicHeader} alt="Profile" className="profile-pic" />

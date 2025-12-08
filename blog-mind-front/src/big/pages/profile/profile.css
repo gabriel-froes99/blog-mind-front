@@ -41,6 +41,7 @@
 .profile-info h2 {
   margin: 0 0 6px 0;
   font-size: 1.5rem;
+  color: #333;
 }
 
 .profile-info .email {
